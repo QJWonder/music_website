@@ -171,6 +171,13 @@ export default defineComponent({
       }
     });
 
+  // if (typeof proxy.$route.query.id === 'string') {
+  // singerId.value = proxy.$route.query.id;  
+  // }
+
+  // if (typeof proxy.$route.query.name === 'string') {
+  // singerName.value = proxy.$route.query.name;
+  // }
     singerId.value = proxy.$route.query.id as string;
     singerName.value = proxy.$route.query.name as string;
     proxy.$store.commit("setIsPlay", false);
@@ -181,6 +188,7 @@ export default defineComponent({
       tableData.value = [];
       tempDate.value = [];
       const result = (await HttpManager.getSongOfSingerId(singerId.value)) as ResponseBody;
+      // const result = await HttpManager.getSongOfSingerId<ResponseBody>(singerId.value);
       tableData.value = result.data;
       tempDate.value = result.data;
       currentPage.value = 1;

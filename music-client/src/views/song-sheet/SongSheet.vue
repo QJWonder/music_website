@@ -1,30 +1,23 @@
 <template>
   <div class="play-list-container">
-    <yin-nav :styleList="songStyle" :activeName="activeName" @click="handleChangeView"></yin-nav>
+    <xing-nav :styleList="songStyle" :activeName="activeName" @click="handleChangeView"></xing-nav>
     <play-list :playList="data" path="song-sheet-detail"></play-list>
-    <el-pagination
-      class="pagination"
-      background
-      layout="total, prev, pager, next"
-      :current-page="currentPage"
-      :page-size="pageSize"
-      :total="allPlayList.length"
-      @current-change="handleCurrentChange"
-    >
+    <el-pagination class="pagination" background layout="total, prev, pager, next" :current-page="currentPage"
+      :page-size="pageSize" :total="allPlayList.length" @current-change="handleCurrentChange">
     </el-pagination>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, computed } from "vue";
-import YinNav from "@/components/layouts/YinNav.vue";
+import XingNav from "@/components/layouts/XingNav.vue";
 import PlayList from "@/components/PlayList.vue";
 import { SONGSTYLE } from "@/enums";
 import { HttpManager } from "@/api";
 
 export default defineComponent({
   components: {
-    YinNav,
+    XingNav,
     PlayList,
   },
   setup() {

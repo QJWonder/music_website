@@ -1,5 +1,5 @@
 <template>
-  <yin-login-logo></yin-login-logo>
+  <xing-login-logo></xing-login-logo>
   <div class="sign">
     <div class="sign-head">
       <span>帐号登录</span>
@@ -9,7 +9,8 @@
         <el-input placeholder="用户名" v-model="registerForm.username"></el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input type="password" placeholder="密码" v-model="registerForm.password" @keyup.enter="handleLoginIn"></el-input>
+        <el-input type="password" placeholder="密码" v-model="registerForm.password"
+          @keyup.enter="handleLoginIn"></el-input>
       </el-form-item>
       <el-form-item class="sign-btn">
         <el-button @click="handleSignUp">注册</el-button>
@@ -22,13 +23,13 @@
 <script lang="ts">
 import { defineComponent, reactive, getCurrentInstance } from "vue";
 import mixin from "@/mixins/mixin";
-import YinLoginLogo from "@/components/layouts/YinLoginLogo.vue";
+import XingLoginLogo from "@/components/layouts/XingLoginLogo.vue";
 import { HttpManager } from "@/api";
 import { NavName, RouterName, SignInRules } from "@/enums";
 
 export default defineComponent({
   components: {
-    YinLoginLogo,
+    XingLoginLogo,
   },
   setup() {
     const { proxy } = getCurrentInstance();

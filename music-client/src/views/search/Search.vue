@@ -7,13 +7,13 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import YinNav from "@/components/layouts/YinNav.vue";
+import XingNav from "@/components/layouts/XingNav.vue";
 import SearchSong from "./SearchSong.vue";
 import SearchSongList from "./SearchSongList.vue";
 
 export default defineComponent({
   components: {
-    YinNav,
+    XingNav,
     SearchSong,
     SearchSongList,
   },
@@ -49,7 +49,7 @@ export default defineComponent({
 .search {
   margin: auto;
   width: 900px;
-  
+
   .search-list {
     min-height: 480px;
   }

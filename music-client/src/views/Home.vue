@@ -1,7 +1,7 @@
 <template>
   <!--轮播图-->
   <el-carousel class="swiper-container" type="card" height="20vw" :interval="4000">
-    <el-carousel-item v-for="(item, index) in swiperList" :key="index">
+    <el-carousel-item v-for="item in swiperList" :key="item">
       <img :src="item.picImg" />
     </el-carousel-item>
   </el-carousel>
@@ -46,6 +46,7 @@ try {
   width: 90%;
   margin: auto;
   padding-top: 20px;
+
   img {
     width: 100%;
   }
@@ -53,7 +54,7 @@ try {
 
 .swiper-container:deep(.el-carousel__indicators.el-carousel__indicators--outside) {
   display: inline-block;
-  transform: translateX(30vw);
+  transform: translate(35vw);
 }
 
 .el-slider__runway {

@@ -18,8 +18,10 @@
         </ul>
       </div>
       <div ref="up" class="comment-ctr" @click="setSupport(item.id, item.up, index)">
-        <div><yin-icon :icon="iconList.Support"></yin-icon> {{ item.up }}</div>
-        <el-icon v-if="item.userId === userId" @click="deleteComment(item.id, index)"><delete /></el-icon>
+        <div><xing-icon :icon="iconList.Support"></xing-icon> {{ item.up }}</div>
+        <el-icon v-if="item.userId === userId" @click="deleteComment(item.id, index)">
+          <delete />
+        </el-icon>
       </div>
     </li>
   </ul>
@@ -29,7 +31,7 @@
 import { defineComponent, getCurrentInstance, ref, toRefs, computed, watch, reactive, onMounted } from "vue";
 import { useStore } from "vuex";
 import { Delete } from "@element-plus/icons-vue";
-import YinIcon from "@/components/layouts/YinIcon.vue";
+import XingIcon from "@/components/layouts/XingIcon.vue";
 import mixin from "@/mixins/mixin";
 import { HttpManager } from "@/api";
 import { Icon } from "@/enums";
@@ -37,7 +39,7 @@ import { formatDate } from "@/utils";
 
 export default defineComponent({
   components: {
-    YinIcon,
+    XingIcon,
     Delete,
   },
   props: {
@@ -184,10 +186,12 @@ export default defineComponent({
 /*热门评论*/
 .popular {
   width: 100%;
-  > li {
+
+  >li {
     border-bottom: solid 1px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
     display: flex;
+
     .popular-img {
       width: 50px;
     }
@@ -195,16 +199,20 @@ export default defineComponent({
     .popular-msg {
       padding: 0 20px;
       flex: 1;
+
       li {
         width: 100%;
       }
+
       .time {
         font-size: 0.6rem;
         color: rgba(0, 0, 0, 0.5);
       }
+
       .name {
         color: rgba(0, 0, 0, 0.5);
       }
+
       .content {
         font-size: 1rem;
       }
@@ -231,5 +239,4 @@ export default defineComponent({
 
 .icon {
   @include icon(1em);
-}
-</style>
+}</style>

@@ -7,18 +7,18 @@
       <el-table-column label="编辑" width="80" align="center">
         <template #default="scope">
           <el-dropdown>
-            <el-icon @click="handleEdit(scope.row)"><MoreFilled /></el-icon>
+            <el-icon @click="handleEdit(scope.row)">
+              <MoreFilled />
+            </el-icon>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item
-                  :icon="Download"
-                  @click="
-                    downloadMusic({
-                      songUrl: scope.row.url,
-                      songName: scope.row.name,
-                    })
+                <el-dropdown-item :icon="Download" @click="downloadMusic({
+                    songUrl: scope.row.url,
+                    songName: scope.row.name,
+                  })
                   ">下载</el-dropdown-item>
-                <el-dropdown-item :icon="Delete" v-if="show" @click="deleteCollection({ id: scope.row.id })">删除</el-dropdown-item>
+                <el-dropdown-item :icon="Delete" v-if="show"
+                  @click="deleteCollection({ id: scope.row.id })">删除</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>

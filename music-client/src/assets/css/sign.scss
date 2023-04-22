@@ -33,8 +33,9 @@
 
   .sign-btn:deep(.el-form-item__content) {
     @include layout(space-between);
+
     button {
-      width: 50%;
+      width: 100%;
     }
   }
 }

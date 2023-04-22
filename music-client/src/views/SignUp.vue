@@ -1,5 +1,5 @@
 <template>
-  <yin-login-logo></yin-login-logo>
+  <xing-login-logo></xing-login-logo>
   <div class="sign">
     <div class="sign-head">
       <span>用户注册</span>
@@ -36,8 +36,7 @@
         </el-select>
       </el-form-item>
       <el-form-item class="sign-btn">
-        <el-button @click="goBack()">登录</el-button>
-        <el-button type="primary" @click="handleSignUp(formRef)">确定</el-button>
+        <el-button type="primary" @click="handleSignUp()">确定</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -46,14 +45,14 @@
 <script lang="ts">
 import { defineComponent, reactive, getCurrentInstance } from "vue";
 import mixin from "@/mixins/mixin";
-import YinLoginLogo from "@/components/layouts/YinLoginLogo.vue";
+import XingLoginLogo from "@/components/layouts/XingLoginLogo.vue";
 import { HttpManager } from "@/api";
 import { getBirth } from "@/utils";
 import { AREA, RouterName, NavName, SignUpRules } from "@/enums";
 
 export default defineComponent({
   components: {
-    YinLoginLogo,
+    XingLoginLogo,
   },
   setup() {
     const { proxy } = getCurrentInstance();
