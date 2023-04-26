@@ -13,7 +13,8 @@
           <div class="singer-img">
             <img :src="attachImageUrl(scope.row.pic)" style="width: 100%" />
           </div>
-          <el-upload :action="uploadUrl(scope.row.id)" :show-file-list="false" :on-success="handleImgSuccess" :before-upload="beforeImgUpload">
+          <el-upload :action="uploadUrl(scope.row.id)" :show-file-list="false" :on-success="handleImgSuccess"
+            :before-upload="beforeImgUpload">
             <el-button>更新图片</el-button>
           </el-upload>
         </template>
@@ -49,15 +50,8 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-      class="pagination"
-      background
-      layout="total, prev, pager, next"
-      :current-page="currentPage"
-      :page-size="pageSize"
-      :total="tableData.length"
-      @current-change="handleCurrentChange"
-    >
+    <el-pagination class="pagination" background layout="total, prev, pager, next" :current-page="currentPage"
+      :page-size="pageSize" :total="tableData.length" @current-change="handleCurrentChange">
     </el-pagination>
   </div>
 
@@ -128,20 +122,20 @@
   </el-dialog>
 
   <!-- 删除提示框 -->
-  <yin-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></yin-del-dialog>
+  <xing-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></xing-del-dialog>
 </template>
 
 <script lang="ts">
 import { defineComponent, getCurrentInstance, watch, ref, reactive, computed } from "vue";
 import mixin from "@/mixins/mixin";
-import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
+import XingDelDialog from "@/components/dialog/XingDelDialog.vue";
 import { HttpManager } from "@/api/index";
 import { RouterName } from "@/enums";
 import { getBirth } from "@/utils";
 
 export default defineComponent({
   components: {
-    YinDelDialog,
+    XingDelDialog,
   },
   setup() {
     const { proxy } = getCurrentInstance();

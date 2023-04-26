@@ -12,7 +12,7 @@ import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class YinMusicApplicationTests {
+public class MusicApplicationTests {
 
     @Autowired
     // private SongServiceImpl songService;
@@ -100,7 +100,7 @@ public class YinMusicApplicationTests {
         consumer.setBirth(new Date());
         consumer.setIntroduction("");
         consumer.setLocation("");
-        consumer.setAvator("/img/avatorImages/user.jpg");
+        consumer.setAvator("/img/avatorImages/admin.jpg");
         consumer.setCreateTime(new Date());
         consumer.setUpdateTime(new Date());
         consumerService.addUser(consumer);

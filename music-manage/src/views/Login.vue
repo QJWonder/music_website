@@ -2,12 +2,12 @@
   <div class="login-container">
     <div class="title">{{ nusicName }}</div>
     <div class="login">
-      <el-form :model="ruleForm" :rules="rules">
+      <el-form :rules="rules">
         <el-form-item prop="username">
-          <el-input v-model="ruleForm.username" placeholder="username"></el-input>
+          <el-input v-model="username" placeholder="username"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" placeholder="password" v-model="ruleForm.password" @keyup.enter="submitForm"></el-input>
+          <el-input type="password" placeholder="password" v-model="password" @keyup.enter="submitForm"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button class="login-btn" type="primary" @click="submitForm">登录</el-button>
@@ -25,22 +25,21 @@ import { RouterName, MUSICNAME } from "@/enums";
 
 export default defineComponent({
   setup() {
+    let username = ref('');
+    let password = ref('');
     const { proxy } = getCurrentInstance();
     const { routerManager } = mixin();
 
     const nusicName = ref(MUSICNAME);
-    const ruleForm = reactive({
-      username: "admin",
-      password: "123",
-    });
+
     const rules = reactive({
-      username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
-      password: [{ required: true, message: "请输入密码", trigger: "blur" }],
+      username: [{ required: true, message: "请输入用户名", trigger: "change" }],
+      password: [{ required: true, message: "请输入密码", trigger: "change" }],
     });
     async function submitForm() {
       let params = new URLSearchParams();
-      params.append("name", ruleForm.username);
-      params.append("password", ruleForm.password);
+      params.append("username", username.value);
+      params.append("password", password.value);
       const result = (await HttpManager.getLoginStatus(params)) as ResponseBody;
       (proxy as any).$message({
         message: result.message,
@@ -51,7 +50,8 @@ export default defineComponent({
     }
     return {
       nusicName,
-      ruleForm,
+      username,
+      password,
       rules,
       submitForm,
     };

@@ -39,20 +39,13 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-      class="pagination"
-      background
-      layout="total, prev, pager, next"
-      :current-page="currentPage"
-      :page-size="pageSize"
-      :total="tableData.length"
-      @current-change="handleCurrentChange"
-    >
+    <el-pagination class="pagination" background layout="total, prev, pager, next" :current-page="currentPage"
+      :page-size="pageSize" :total="tableData.length" @current-change="handleCurrentChange">
     </el-pagination>
   </div>
 
   <!-- 删除提示框 -->
-  <yin-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></yin-del-dialog>
+  <xing-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></xing-del-dialog>
 </template>
 
 <script lang="ts">
@@ -60,12 +53,12 @@ import { defineComponent, getCurrentInstance, watch, ref, reactive, computed } f
 import mixin from "@/mixins/mixin";
 import { HttpManager } from "@/api";
 import { RouterName } from "@/enums";
-import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
+import XingDelDialog from "@/components/dialog/XingDelDialog.vue";
 import { getBirth } from "@/utils";
 
 export default defineComponent({
   components: {
-    YinDelDialog,
+    XingDelDialog,
   },
   setup() {
     const { proxy } = getCurrentInstance();

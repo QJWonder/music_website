@@ -1,27 +1,29 @@
 <template>
   <div class="sidebar">
-    <el-menu
-      class="sidebar-el-menu"
-      background-color="#ffffff"
-      active-text-color="#30a4fc"
-      default-active="2"
-      router
-      :collapse="collapse"
-    >
+    <el-menu class="sidebar-el-menu" background-color="#ffffff" active-text-color="#30a4fc" default-active="2" router
+      :collapse="collapse">
       <el-menu-item index="info">
-        <el-icon><pie-chart /></el-icon>
+        <el-icon>
+          <PieChart />
+        </el-icon>
         <span>系统首页</span>
       </el-menu-item>
       <el-menu-item index="consumer">
-        <el-icon><User /></el-icon>
+        <el-icon>
+          <User />
+        </el-icon>
         <span>用户管理</span>
       </el-menu-item>
       <el-menu-item index="singer">
-        <el-icon><mic /></el-icon>
+        <el-icon>
+          <Mic />
+        </el-icon>
         <span>歌手管理</span>
       </el-menu-item>
       <el-menu-item index="songList">
-        <el-icon><Document /></el-icon>
+        <el-icon>
+          <Document />
+        </el-icon>
         <span>歌单管理</span>
       </el-menu-item>
     </el-menu>
@@ -53,7 +55,7 @@ emitter.on("collapse", (msg) => {
   width: 0;
 }
 
-.sidebar > ul {
+.sidebar>ul {
   height: 100%;
 }
 

@@ -39,11 +39,13 @@
       </el-table-column>
       <el-table-column label="资源更新" width="120" align="center">
         <template v-slot="scope">
-          <el-upload :action="updateSongImg(scope.row.id)" :show-file-list="false" :on-success="handleImgSuccess" :before-upload="beforeImgUpload">
+          <el-upload :action="updateSongImg(scope.row.id)" :show-file-list="false" :on-success="handleImgSuccess"
+            :before-upload="beforeImgUpload">
             <el-button>更新图片</el-button>
           </el-upload>
           <br />
-          <el-upload :action="updateSongUrl(scope.row.id)" :show-file-list="false" :on-success="handleSongSuccess" :before-upload="beforeSongUpload">
+          <el-upload :action="updateSongUrl(scope.row.id)" :show-file-list="false" :on-success="handleSongSuccess"
+            :before-upload="beforeSongUpload">
             <el-button>更新歌曲</el-button>
           </el-upload>
         </template>
@@ -60,15 +62,8 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-      class="pagination"
-      background
-      layout="total, prev, pager, next"
-      :current-page="currentPage"
-      :page-size="pageSize"
-      :total="tableData.length"
-      @current-change="handleCurrentChange"
-    >
+    <el-pagination class="pagination" background layout="total, prev, pager, next" :current-page="currentPage"
+      :page-size="pageSize" :total="tableData.length" @current-change="handleCurrentChange">
     </el-pagination>
   </div>
 
@@ -118,7 +113,7 @@
   </el-dialog>
 
   <!-- 删除提示框 -->
-  <yin-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></yin-del-dialog>
+  <xing-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></xing-del-dialog>
 </template>
 
 <script lang="ts">
@@ -128,11 +123,11 @@ import mixin from "@/mixins/mixin";
 import { Icon, RouterName } from "@/enums";
 import { HttpManager } from "@/api";
 import { parseLyric } from "@/utils";
-import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
+import XingDelDialog from "@/components/dialog/XingDelDialog.vue";
 
 export default defineComponent({
   components: {
-    YinDelDialog,
+    XingDelDialog,
   },
   setup() {
     const { proxy } = getCurrentInstance();
@@ -171,13 +166,13 @@ export default defineComponent({
       }
     });
 
-  // if (typeof proxy.$route.query.id === 'string') {
-  // singerId.value = proxy.$route.query.id;  
-  // }
+    // if (typeof proxy.$route.query.id === 'string') {
+    // singerId.value = proxy.$route.query.id;  
+    // }
 
-  // if (typeof proxy.$route.query.name === 'string') {
-  // singerName.value = proxy.$route.query.name;
-  // }
+    // if (typeof proxy.$route.query.name === 'string') {
+    // singerName.value = proxy.$route.query.name;
+    // }
     singerId.value = proxy.$route.query.id as string;
     singerName.value = proxy.$route.query.name as string;
     proxy.$store.commit("setIsPlay", false);
@@ -423,6 +418,7 @@ export default defineComponent({
   justify-content: center;
   cursor: pointer;
 }
+
 .icon {
   width: 2em;
   height: 2em;

@@ -1,17 +1,17 @@
 <template>
-  <yin-header></yin-header>
-  <yin-aside></yin-aside>
+  <xing-header></xing-header>
+  <xing-aside></xing-aside>
   <div class="content-box" :class="{ 'content-collapse': collapse }">
     <router-view></router-view>
   </div>
-  <yin-audio></yin-audio>
+  <!-- <xing-audio></xing-audio> -->
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import YinHeader from "@/components/layouts/YinHeader.vue";
-import YinAudio from "@/components/layouts/YinAudio.vue";
-import YinAside from "@/components/layouts/YinAside.vue";
+import XingHeader from "@/components/layouts/XingHeader.vue";
+// import XingAudio from "@/components/layouts/XingAudio.vue";
+import XingAside from "@/components/layouts/XingAside.vue";
 import emitter from "@/utils/emitter";
 
 const collapse = ref(false);

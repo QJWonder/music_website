@@ -1,8 +1,12 @@
 <template>
   <div class="header">
     <div class="collapse-btn" @click="collapseChage">
-      <el-icon v-if="!collapse"><expand /></el-icon>
-      <el-icon v-else><fold /></el-icon>
+      <el-icon v-if="!collapse">
+        <expand />
+      </el-icon>
+      <el-icon v-else>
+        <fold />
+      </el-icon>
     </div>
     <div class="logo">{{ nusicName }}</div>
     <div class="header-right">

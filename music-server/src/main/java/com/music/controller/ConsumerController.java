@@ -55,7 +55,7 @@ public class ConsumerController {
         String birth = req.getParameter("birth").trim();
         String introduction = req.getParameter("introduction").trim();
         String location = req.getParameter("location").trim();
-        String avator = "/img/avatorImages/user.jpg";
+        String avator = "/img/avatorImages/admin.jpg";
 
         if(consumerService.existUser(username)) {
             return new WarningMessage("用户名已注册").getMessage();
