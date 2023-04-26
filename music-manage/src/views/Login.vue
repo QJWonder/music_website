@@ -1,13 +1,13 @@
 <template>
   <div class="login-container">
-    <div class="title">{{ nusicName }}</div>
+    <div class="title">{{ musicName }}</div>
     <div class="login">
-      <el-form :rules="rules">
+      <el-form :model="form" :rules="rules">
         <el-form-item prop="username">
-          <el-input v-model="username" placeholder="username"></el-input>
+          <el-input type="text" v-model="form.username" placeholder="username"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" placeholder="password" v-model="password" @keyup.enter="submitForm"></el-input>
+          <el-input type="password" v-model="form.password" placeholder="password" @keyup.enter="submitForm"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button class="login-btn" type="primary" @click="submitForm">登录</el-button>
@@ -25,12 +25,17 @@ import { RouterName, MUSICNAME } from "@/enums";
 
 export default defineComponent({
   setup() {
-    let username = ref('');
-    let password = ref('');
+    // let username = ref('');
+    // let password = ref('');
     const { proxy } = getCurrentInstance();
     const { routerManager } = mixin();
 
-    const nusicName = ref(MUSICNAME);
+    const form = reactive({
+      username: '',
+      password: '',
+    });
+
+    const musicName = ref(MUSICNAME);
 
     const rules = reactive({
       username: [{ required: true, message: "请输入用户名", trigger: "change" }],
@@ -38,20 +43,20 @@ export default defineComponent({
     });
     async function submitForm() {
       let params = new URLSearchParams();
-      params.append("username", username.value);
-      params.append("password", password.value);
+      params.append("username", form.username);
+      params.append("password", form.password);
       const result = (await HttpManager.getLoginStatus(params)) as ResponseBody;
       (proxy as any).$message({
         message: result.message,
         type: result.type,
       });
-
       if (result.success) routerManager(RouterName.Info, { path: RouterName.Info });
     }
     return {
-      nusicName,
-      username,
-      password,
+      musicName,
+      // username,
+      // password,
+      form,
       rules,
       submitForm,
     };

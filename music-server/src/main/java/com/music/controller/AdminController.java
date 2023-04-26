@@ -23,12 +23,12 @@ public class AdminController {
     @ResponseBody
     @RequestMapping(value = "/admin/login/status", method = RequestMethod.POST)
     public Object loginStatus(HttpServletRequest req, HttpSession session) {
-        String name = req.getParameter("name");
+        String name = req.getParameter("username");
         String password = req.getParameter("password");
 
         boolean res = adminService.veritypasswd(name, password);
         if (res) {
-            session.setAttribute("name", name);
+            session.setAttribute("username", name);
             return new SuccessMessage<Null>("登录成功").getMessage();
         } else {
             return new ErrorMessage("用户名或密码错误").getMessage();
