@@ -2,7 +2,7 @@
   <div class="play-list">
     <div class="play-title" v-if="title">{{ title }}</div>
     <ul class="play-body">
-      <li class="card-frame" v-for="(item, index) in playList" :key="index">
+      <li class="card-frame" v-for="(item, index) of playList" :key="index">
         <div class="card" @click="goAblum(item)">
           <el-image class="card-img" fit="contain" :src="attachImageUrl(item.pic)" />
           <div class="mask" @click="goAblum(item)">
@@ -16,21 +16,40 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance, toRefs } from "vue";
+import { defineComponent, getCurrentInstance, toRefs, PropType } from "vue";
 import XingIcon from "@/components/layouts/XingIcon.vue";
 import mixin from "@/mixins/mixin";
 import { Icon } from "@/enums";
 import { HttpManager } from "@/api";
 
+interface Song {
+  pic: string;
+  name: string;
+  title: string;
+  // 其他属性
+}
+/*
+  通过 props 接收到了名为 playList 的数组，
+  其中的每个元素就是 songList 数组中的一个对象，
+  所以在子组件中可以通过 item.attribute 来获取每个对象的 attribute 属性
+*/
 export default defineComponent({
   components: {
     XingIcon,
   },
   props: {
+    playList: {
+      type: Array as PropType<Song[]>,
+      required: true,
+    },
     title: String,
-    playList: Array,
     path: String,
   },
+  // props: {
+  //   title: String,
+  //   playList: Array,
+  //   path: String,
+  // },
   setup(props) {
     const { proxy } = getCurrentInstance();
     const { routerManager } = mixin();

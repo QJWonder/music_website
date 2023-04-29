@@ -42,10 +42,16 @@ window.addEventListener("beforeunload", () => {
 
 
 .el-container {
-  background-color: rgba(173, 216, 230, 0.4);
+  // background-color: rgba(173, 216, 230, 0.4);
+  background-image: url("@/assets/images/10.jpg");
+  opacity: 1;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   min-height: calc(100% - 60px);
 
 }
+
 
 .el-header {
   padding: 0;

@@ -23,11 +23,15 @@ const singerList = ref([]); // 歌手列表
 const { changeIndex } = mixin();
 try {
   HttpManager.getSongList().then((res) => {
-    songList.value = (res as ResponseBody).data.sort().slice(0, 10);
+    songList.value = (res as ResponseBody).data.sort(() => Math.random() - 0.5).slice(0, 10);
+    // 随机获取10个
   });
-
+  /*
+    从服务器返回的数据（res.data）进行排序，取前10个，
+    最后将结果赋值给songList的变量的value属性
+  */
   HttpManager.getAllSinger().then((res) => {
-    singerList.value = (res as ResponseBody).data.sort().slice(0, 10);
+    singerList.value = (res as ResponseBody).data.sort(() => Math.random() - 0.5).slice(0, 10);
   });
 
   onMounted(() => {

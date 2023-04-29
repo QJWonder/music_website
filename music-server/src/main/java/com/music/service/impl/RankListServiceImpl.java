@@ -1,4 +1,4 @@
-package com.music.service.impl;
+    package com.music.service.impl;
 
 import com.music.mapper.RankListMapper;
 import com.music.pojo.RankList;
@@ -33,10 +33,6 @@ public class RankListServiceImpl implements RankListService {
 
     @Override
     public int getUserRank(Long consumerId, Long songListId) {
-        System.out.println("==========");
-        System.out.println(consumerId);
-        System.out.println(songListId);
-        System.out.println("11111");
         return rankMapper.selectUserRank(consumerId, songListId);
     }
 }
