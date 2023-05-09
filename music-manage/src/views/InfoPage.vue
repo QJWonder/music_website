@@ -4,7 +4,9 @@
       <el-card shadow="hover" :body-style="{ padding: '0px' }">
         <div class="card-content">
           <div class="card-left">
-            <el-icon><user /></el-icon>
+            <el-icon>
+              <user />
+            </el-icon>
           </div>
           <div class="card-right">
             <div class="card-num">{{ userCount }}</div>
@@ -17,7 +19,9 @@
       <el-card shadow="hover" :body-style="{ padding: '0px' }">
         <div class="card-content">
           <div class="card-left">
-            <el-icon><headset /></el-icon>
+            <el-icon>
+              <headset />
+            </el-icon>
           </div>
           <div class="card-right">
             <div class="card-num">{{ songCount }}</div>
@@ -30,7 +34,9 @@
       <el-card shadow="hover" :body-style="{ padding: '0px' }">
         <div class="card-content">
           <div class="card-left">
-            <el-icon><mic /></el-icon>
+            <el-icon>
+              <mic />
+            </el-icon>
           </div>
           <div class="card-right">
             <div class="card-num">{{ singerCount }}</div>
@@ -43,7 +49,9 @@
       <el-card shadow="hover" :body-style="{ padding: '0px' }">
         <div class="card-content">
           <div class="card-left">
-            <el-icon><document /></el-icon>
+            <el-icon>
+              <document />
+            </el-icon>
           </div>
           <div class="card-right">
             <div class="card-num">{{ songListCount }}</div>
@@ -197,7 +205,7 @@ HttpManager.getSongList().then((res) => {
     }
   }
   // const songStyleChart = echarts.init(proxy.$refs.songStyle);
-  const songStyleChart = echarts.init(document.getElementById("songStyle"));
+  const songStyleChart = echarts.init(document.getElementById("songStyle"));  //
   songStyleChart.setOption(songStyle);
 });
 
@@ -250,10 +258,10 @@ h3 {
   margin: 10px 0;
   text-align: center;
 }
+
 .cav-info {
   border-radius: 6px;
   overflow: hidden;
   height: 250px;
   background-color: white;
-}
-</style>
+}</style>

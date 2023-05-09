@@ -55,7 +55,7 @@ export default defineComponent({
     XingLoginLogo,
   },
   setup() {
-    const { proxy } = getCurrentInstance();
+    const { proxy } = getCurrentInstance();  // 返回当前组件实例对象
     const { routerManager, changeIndex } = mixin();
 
     const registerForm = reactive({
@@ -94,8 +94,8 @@ export default defineComponent({
         });
 
         if (result.success) {
-          changeIndex(NavName.SignIn);
-          routerManager(RouterName.SignIn, { path: RouterName.SignIn });
+          changeIndex(NavName.SignIn);  // 更新导航栏状态
+          routerManager(RouterName.SignIn, { path: RouterName.SignIn });  // 跳转登陆页面
         }
       } catch (error) {
         console.error(error);

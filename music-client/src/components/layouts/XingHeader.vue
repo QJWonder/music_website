@@ -1,7 +1,7 @@
 <template>
   <div class="xing-header">
     <!--图标-->
-    <div class="header-logo" @click="goPage()">
+    <div class="header-logo" @click="goPage(null, null)">
       <!-- <xing-icon :icon="iconList.ERJI"></xing-icon> -->
       <img src="@/assets/images/R-C.png" alt="icon">
       <span>{{ musicName }}</span>

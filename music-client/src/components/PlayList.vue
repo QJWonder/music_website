@@ -22,16 +22,16 @@ import mixin from "@/mixins/mixin";
 import { Icon } from "@/enums";
 import { HttpManager } from "@/api";
 
-interface Song {
+interface Data {
   pic: string;
   name: string;
   title: string;
   // 其他属性
 }
 /*
-  通过 props 接收到了名为 playList 的数组，
-  其中的每个元素就是 songList 数组中的一个对象，
-  所以在子组件中可以通过 item.attribute 来获取每个对象的 attribute 属性
+  通过 props 接收到了名为 playList 的Data数组，
+  其中的每个元素就是 Data 数组中的一个对象，
+  所以在子组件中可以通过 item.attribute 来获取每个对象的属性
 */
 export default defineComponent({
   components: {
@@ -39,7 +39,7 @@ export default defineComponent({
   },
   props: {
     playList: {
-      type: Array as PropType<Song[]>,
+      type: Array as PropType<Data[]>,
       required: true,
     },
     title: String,

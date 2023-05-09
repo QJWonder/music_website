@@ -152,6 +152,7 @@ export default defineComponent({
     color: rgba(0, 0, 0, 0.5);
     margin: 10px 0 20px 0px;
   }
+
   /*歌单打分*/
   .album-score {
     display: flex;
@@ -161,10 +162,12 @@ export default defineComponent({
     h3 {
       margin: 10px 0;
     }
+
     span {
       font-size: 60px;
     }
-    & > div:last-child {
+
+    &>div:last-child {
       margin-left: 10%;
     }
   }
@@ -179,6 +182,7 @@ export default defineComponent({
     position: fixed;
     width: 400px;
   }
+
   .album-main {
     min-width: 600px;
     padding-right: 10vw;

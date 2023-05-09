@@ -1,5 +1,6 @@
 <template>
   <div class="play-list-container">
+    <!-- 自定义属性styleList和playList 传给子组件 -->
     <xing-nav :styleList="songStyle" :activeName="activeName" @click="handleChangeView"></xing-nav>
     <play-list :playList="data" path="song-sheet-detail"></play-list>
     <el-pagination class="pagination" background layout="total, prev, pager, next" :current-page="currentPage"

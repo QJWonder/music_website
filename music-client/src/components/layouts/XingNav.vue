@@ -8,11 +8,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance } from "vue";
+import { defineComponent, getCurrentInstance, PropType } from "vue";
 
+interface SongStyle {
+  name: string;
+  // 其他属性
+}
 export default defineComponent({
   props: {
-    styleList: Array,
+    styleList: {
+      type: Array as PropType<SongStyle[]>,
+      required: true,
+    },
     activeName: String,
   },
   emits: ["click"],

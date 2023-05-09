@@ -10,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/",
-    name: "yin-container",
+    name: "xing-container",
     component: () => import("@/views/XingContainer.vue"),
     children: [
       {

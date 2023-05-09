@@ -8,11 +8,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance } from "vue";
-
+import { defineComponent, getCurrentInstance, PropType } from "vue";
+interface HeaderNavList {
+  name: string;   // string 是一种原始数据类型，表示一个字符序列，而 String 是 JavaScript 中的构造函数，表示字符串对象
+  path: string;
+}
 export default defineComponent({
   props: {
-    styleList: Array,
+    styleList: {
+      type: Array as PropType<HeaderNavList[]>,
+      required: true,
+    },
     activeName: String,
   },
   emits: ["click"],

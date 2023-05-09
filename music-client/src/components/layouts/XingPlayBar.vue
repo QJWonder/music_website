@@ -11,7 +11,7 @@
         <el-image class="song-bar-img" fit="contain" :src="attachImageUrl(songPic)" @click="goPlayerPage" />
         <!--播放开始结束时间-->
         <div v-if="songId">
-          <div class="song-info">{{ this.songTitle }} - {{ this.singerName }}</div>
+          <div class="song-info">{{ songTitle }} - {{ singerName }}</div>
           <div class="time-info">{{ startTime }} / {{ endTime }}</div>
         </div>
       </div>
@@ -142,6 +142,7 @@ export default defineComponent({
     };
   },
   computed: {
+    // 可以将getter映射到组件的计算属性中，以便可以轻松地从store中获取所需的数据
     ...mapGetters([
       "userId",
       "isPlay", // 播放状态
@@ -229,7 +230,7 @@ export default defineComponent({
       }
     },
     // 选中播放
-    toPlay(url) {
+    toPlay(url: any) {
       if (url && url !== this.songUrl) {
         const song = this.currentPlayList[this.currentPlayIndex];
         this.playMusic({

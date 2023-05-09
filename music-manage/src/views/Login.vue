@@ -67,7 +67,7 @@ export default defineComponent({
 <style scoped>
 .login-container {
   position: relative;
-  background: url("../assets/images/background.jpg");
+  background: url("@/assets/images/57.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;

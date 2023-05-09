@@ -65,6 +65,8 @@
         </dependency>
 
         <!-- Mybatis spring boot -->
+        <!-- MyBatis Spring Boot Starter是一个自动配置的库，它会自动检测应用程序中使用的MyBatis版本，
+        自动配置数据源和SqlSessionFactory-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
