@@ -1,5 +1,16 @@
 import { Icon } from "@/enums";
-
+// state是存储应用程序 状态的变量
+// getters可以看作是store的计算属性
+// mutations是存储用于修改state的函数
+// actions可以组件可以向后端服务器请求数据，将获取到的数据通过 commit 方法提交mutations来间接修改state
+/* 
+    异步和同步
+    
+    异步：需要等待其他操作完成后才能修改 state 中的数据，例如网络请求、读写浏览器缓存等操作（需要从云端拉取信息后再执行）
+    同步：直接修改 state 中的数据，不需要等待其他操作完成（不用从云端拉取信息）
+    函数内部修改数据是异步的用actions，同步用mutations
+    
+*/
 export default {
   state: {
     /** 音乐信息 */

@@ -16,8 +16,8 @@ export const validatePassword = (rule, value, callback) => {
 };
 
 export const SignInRules = {
-  username: [{ validator: validateName, trigger: "blur", min: 3 }],
-  password: [{ validator: validatePassword, trigger: "blur", min: 3 }],
+  username: [{ validator: validateName, trigger: "change", min: 3 }],
+  password: [{ validator: validatePassword, trigger: "change", min: 3 }],
 };
 
 // 注册规则

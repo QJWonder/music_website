@@ -53,7 +53,9 @@ export default defineComponent({
       params.append("password", registerForm.password);
 
       try {
+        // await 等待异步操作（url请求）完成，将结果返回给result
         const result = (await HttpManager.signIn(params)) as ResponseBody;
+        // 不受类型检查的类型
         (proxy as any).$message({
           message: result.message,
           type: result.type,
